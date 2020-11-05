@@ -1,7 +1,7 @@
 const frisby = require('frisby');
 const { MongoClient } = require('mongodb');
 
-const mongoDbUrl = 'mongodb://mongodb:27017/StoreManager';
+const mongoDbUrl = 'mongodb://localhost:27017';
 const url = 'http://localhost:3000';
 const invalidId = 99999;
 
@@ -321,6 +321,17 @@ describe('6 - Crie um endpoint para listar as vendas', () => {
         expect(quantityFirstProductSales).toBe(2);
         expect(idSecondProductSales).toBe(result.products[1]._id);
         expect(quantitySecondProductSales).toBe(6);
+      });
+  });
+
+  it('Será validado que não é possível listar uma venda inexistente', async () => {
+    await frisby.get(`${url}/sales/9999`)
+      .expect('status', 422)
+      .then((responseOne) => {
+        const { body } = responseOne;
+        const responseError = JSON.parse(body);
+        expect(responseError.err.code).toEqual('invalid_data');
+        expect(responseError.err.message).toEqual('Wrong ID format');
       });
   });
 });
