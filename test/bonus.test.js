@@ -21,7 +21,7 @@ describe('11 - Escreva testes para seus models', () => {
   });
 
   afterAll(async () => {
-    await exec('rm -rf coverage .nyc_output')');
+    await exec('rm -rf coverage .nyc_output');
   });
 
   it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 80%', async () => {
@@ -36,7 +36,7 @@ describe('12 - Escreva testes para seus services', () => {
   });
 
   afterAll(async () => {
-    await exec('rm -rf coverage .nyc_output')');
+    await exec('rm -rf coverage .nyc_output');
   });
 
   it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 80%', async () => {
@@ -51,7 +51,7 @@ describe('13 - Escreva testes para seus controllers', () => {
   });
 
   afterAll(async () => {
-    await exec('rm -rf coverage .nyc_output')');
+    await exec('rm -rf coverage .nyc_output');
   });
 
   it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 80%', async () => {
